@@ -12,8 +12,8 @@ const eventLogger = {
 
     sendEventData: (eventType, event) => {
         axios.post('http://localhost:5000/api/middleware/getDetails', {
-            tenantId:tenantId,
-            userId:userId,
+            tenantId:user_details.tenantId,
+            userId:user_details.userId,
             eventType: eventType,
             eventLocation: event.currentTarget.location.href,
             xCoord: event.clientX,
