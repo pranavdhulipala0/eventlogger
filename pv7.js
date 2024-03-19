@@ -11,22 +11,22 @@ const eventLogger = {
     },
 
     sendEventData: (eventType, event) => {
-        // try{
-        // var timing = window.performance.timing;
+        try{
+        var timing = window.performance.timing;
         axios.post('http://localhost:5000/api/middleware/getDetails', {
             tenantId:user_details.tenantId,
             userId:user_details.userId,
             platform: navigator.platform,
             eventType: eventType,
-            // loadTime: timing.loadEventEnd - timing.navigationStart;
+            loadTime: timing.loadEventEnd - timing.navigationStart,
             eventLocation: event.currentTarget.location.href,
             xCoord: event.clientX,
             yCoord: event.clientY,
         });
-    // }
-    // catch(e){
-    //     console.log("Couldn't send");
-    // }
+    }
+    catch(e){
+        console.log("Couldn't send");
+    }
 };
 
 eventLogger.init();
