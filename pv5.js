@@ -11,6 +11,7 @@ const eventLogger = {
     },
 
     sendEventData: (eventType, event) => {
+        try{
         var timing = window.performance;
         axios.post('http://localhost:5000/api/middleware/getDetails', {
             tenantId:user_details.tenantId,
@@ -22,6 +23,9 @@ const eventLogger = {
             xCoord: event.clientX,
             yCoord: event.clientY,
         });
+    }
+    catch(e){
+        console.log("Couldn't send");
     }
 };
 
