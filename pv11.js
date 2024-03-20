@@ -59,9 +59,3 @@ const insights = {
   setInterval(()=>{
     insights.sendOnline();
   },5000)
-
-  const user_details = {
-    "tenantId": "Darwinbox",
-    "userId": "DBIN504",
-    "authToken": "123456"
-  }
